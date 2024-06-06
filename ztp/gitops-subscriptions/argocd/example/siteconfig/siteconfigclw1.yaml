@@ -44,7 +44,7 @@ spec:
         bmcAddress: "idrac-virtualmedia+https://10.1.177.21/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-1"
-        bootMACAddress: "b4:96:91:25:93:20"
+        bootMACAddress: "b4:96:91:25:93:22"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -61,13 +61,13 @@ spec:
         #      start: 800000
         nodeNetwork:
           interfaces:
-            - name: "eno12399"
+            - name: "enp5s0f0"
               macAddress: "b4:96:91:25:93:20"
-            - name: "eno12409"
+            - name: "enp5s0f1"
               macAddress: "b4:96:91:25:93:22"
           config:
             interfaces:
-              - name: eno12409
+              - name: enp5s0f1
                 type: ethernet
                 state: up
                 ipv4:
@@ -91,7 +91,7 @@ spec:
         bmcAddress: "idrac-virtualmedia+https://10.1.177.22/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-2"
-        bootMACAddress: "b4:96:91:1d:7a:54"
+        bootMACAddress: "b4:96:91:1d:7a:56"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -108,13 +108,13 @@ spec:
         #      start: 800000
         nodeNetwork:
           interfaces:
-            - name: "eno12399"
+            - name: "enp5s0f0"
               macAddress: "b4:96:91:1d:7a:54"
-            - name: "eno12409"
+            - name: "enp5s0f1"
               macAddress: "b4:96:91:1d:7a:56"
           config:
             interfaces:
-              - name: eno12409
+              - name: enp5s0f1
                 type: ethernet
                 state: up
                 ipv4:
@@ -138,7 +138,7 @@ spec:
         bmcAddress: "idrac-virtualmedia+https://10.1.177.23/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-3"
-        bootMACAddress: "b4:96:91:1d:72:6c"
+        bootMACAddress: "b4:96:91:1d:72:6e"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -155,13 +155,13 @@ spec:
         #      start: 800000
         nodeNetwork:
           interfaces:
-            - name: "eno12399"
+            - name: "enp5s0f0"
               macAddress: "b4:96:91:1d:72:6c"
-            - name: "eno12409"
+            - name: "enp5s0f1"
               macAddress: "b4:96:91:1d:72:6e"
           config:
             interfaces:
-              - name: eno12409
+              - name: enp5s0f1
                 type: ethernet
                 state: up
                 ipv4:
