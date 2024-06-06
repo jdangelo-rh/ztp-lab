@@ -7,7 +7,7 @@ spec:
   baseDomain: "jpatete.info"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "quay.io/openshift-release-dev/ocp-release:4.14.27-multi"
+  clusterImageSetNameRef: "img4.14.27-x86-64-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDikFJUEHrienq0oIzOIFPgBARssBwVgNTKU7Vhe37lMTYnCcu3GNNdryE/ZXBzD4Q1lEAWf1nAUM8zbndsgtrx7uups/eKAgv0FiaSplFS3nNI9Wtdc0Zg0ynO2NUhx505vlV/4nGYAolj3hqF3QtbVFLR83S9A8DdlUEufA/PLLe0FmITu4qHMDAmuTwABPkdi8MdAkyBQxop+9mnsC2BMabRtnxIZa3tADYYUF1RGjTgCFmntEdVff2w3eakNsYo0WRxEFgBoz5Oco0mXOEA/imur5TE+PXmZGtyvyFLEVQoHJin+sHfAmv70pUfBXh/aEgEtES3Y2zaMtflt6kBghCJC1plxZWBhv32SX/Y2rj/rXuBZFlYp6pRKtCxzraFTbl2z5ORSgJpIvXQvb8tPdR9se/KEixiGjV/duLetwvNXDRenXpJCqhwR1sIMpcPdqkgXI1KvQKcx4S1SsTzHuT0l33gyDe+HPeqMGmoFaJIsybYG2zSznELnuYlFYEbeHB5tWyZKb82habRbwAO9j4jEyaEDvfM6d9f+p23L6DhATOMdARZHNALMaMPNNzrKOZg4lL2ygH+hysdPAjhJg76iWjqqJVrluF03RZwTcuXsdbFX9pVYXoZwYkB4bCYWv4aVkskVjujgzxQXgZ2yRDSiII2Jg2gnfmHr9mHXw=="
   clusters:
   - clusterName: "cwl-site1"
