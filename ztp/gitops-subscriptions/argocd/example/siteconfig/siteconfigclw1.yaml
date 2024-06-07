@@ -92,7 +92,7 @@ spec:
 ############################################################
       - hostName: "master2.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9000/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9001/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-2"
         bootMACAddress: "b4:96:91:1d:7a:56"
@@ -143,7 +143,7 @@ spec:
 ############################################################
       - hostName: "master3.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9000/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-3"
         bootMACAddress: "b4:96:91:1d:74:96" 
