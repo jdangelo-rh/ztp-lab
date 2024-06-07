@@ -41,7 +41,7 @@ spec:
     nodes:
       - hostName: "master1.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "idrac-virtualmedia+https://10.1.177.21/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-1"
         bootMACAddress: "b4:96:91:25:93:20"
@@ -89,7 +89,7 @@ spec:
 ############################################################
       - hostName: "master2.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "idrac-virtualmedia+https://10.1.177.22/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9001/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-2"
         bootMACAddress: "b4:96:91:1d:7a:54"
@@ -137,7 +137,7 @@ spec:
 ############################################################
       - hostName: "master3.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "idrac-virtualmedia+https://10.1.177.24/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-3"
         bootMACAddress: "b4:96:91:1d:74:94" 
