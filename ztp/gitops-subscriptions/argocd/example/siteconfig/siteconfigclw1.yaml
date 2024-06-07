@@ -84,8 +84,8 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  interface: enp5s0f1
-                  address: 10.1.198.46
+                  next-hop-interface: enp5s0f1
+                  next-hop-address: 10.1.198.46
 ############################################################
       - hostName: "master2.cwl-site1.jpatete.info"
         role: "master"
@@ -132,8 +132,8 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  interface: enp5s0f1
-                  address: 10.1.198.46
+                  next-hop-interface: enp5s0f1
+                  next-hop-address: 10.1.198.46
 ############################################################
       - hostName: "master3.cwl-site1.jpatete.info"
         role: "master"
@@ -180,5 +180,5 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  interface: enp5s0f1
-                  address: 10.1.198.46
+                  next-hop-interface: enp5s0f1
+                  next-hop-address: 10.1.198.46
