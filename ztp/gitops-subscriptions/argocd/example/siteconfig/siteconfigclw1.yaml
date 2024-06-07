@@ -41,10 +41,10 @@ spec:
     nodes:
       - hostName: "master1.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9000/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-1"
-        bootMACAddress: "b4:96:91:25:93:20"
+        bootMACAddress: "b4:96:91:25:93:22"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -92,7 +92,7 @@ spec:
         bmcAddress: "redfish-virtualmedia://10.1.198.35:9001/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-2"
-        bootMACAddress: "b4:96:91:1d:7a:54"
+        bootMACAddress: "b4:96:91:1d:7a:56"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -140,7 +140,7 @@ spec:
         bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-3"
-        bootMACAddress: "b4:96:91:1d:74:94" 
+        bootMACAddress: "b4:96:91:1d:74:96" 
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
