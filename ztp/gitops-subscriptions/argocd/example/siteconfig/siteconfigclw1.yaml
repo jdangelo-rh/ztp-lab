@@ -22,8 +22,8 @@ spec:
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
     apiVIP: 10.1.198.43
     apiVIPs:
-      - 10.1.198.44
-    ingressVIP:  10.1.198.43
+      - 10.1.198.43
+    ingressVIP:  10.1.198.44
     ingressVIPs:
       - 10.1.198.44
     serviceNetwork:
@@ -73,7 +73,7 @@ spec:
                 ipv4:
                   address:
                   - ip: 10.1.198.34
-                    prefix-length: 24
+                    prefix-length: 28
                   enabled: true
                 ipv6:
                   enabled: false
@@ -120,7 +120,7 @@ spec:
                 ipv4:
                   address:
                   - ip: 10.1.198.37
-                    prefix-length: 24
+                    prefix-length: 28
                   enabled: true
                 ipv6:
                   enabled: false
@@ -167,7 +167,7 @@ spec:
                 ipv4:
                   address:
                   - ip: 10.1.198.38
-                    prefix-length: 24
+                    prefix-length: 28
                   enabled: true
                 ipv6:
                   enabled: false
