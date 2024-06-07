@@ -17,8 +17,8 @@ spec:
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
-    machineNetwork:
-      - cidr: 10.1.198.32/28
+##  machineNetwork:
+##    - cidr: 10.1.198.32/28
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
     apiVIP: 10.1.198.43
     apiVIPs:
