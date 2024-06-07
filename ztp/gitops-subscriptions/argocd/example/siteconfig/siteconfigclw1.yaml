@@ -45,9 +45,9 @@ spec:
         bmcCredentialsName:
           name: "bmh-secret-1"
         bootMACAddress: "b4:96:91:25:93:22"
-        bootMode: "UEFISecureBoot"  
+        # bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
-        # bootMode: "UEFI"
+        bootMode: "UEFI"
         nodeLabels:
           cluster.ocs.openshift.io/openshift-storage: "true"
         rootDeviceHints:
@@ -67,9 +67,12 @@ spec:
               macAddress: "b4:96:91:25:93:22"
           config:
             interfaces:
-              - name: enp5s0f1
-                type: ethernet
+              - name: enp5s0f1.302
+                type: vlan
                 state: up
+                vlan:
+                  base-iface: enp5s0f1
+                  id: 302
                 ipv4:
                   address:
                   - ip: 10.1.198.34
@@ -84,7 +87,7 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1
+                  next-hop-interface: enp5s0f1.302
                   next-hop-address: 10.1.198.46
 ############################################################
       - hostName: "master2.cwl-site1.jpatete.info"
@@ -115,9 +118,12 @@ spec:
               macAddress: "b4:96:91:1d:7a:56"
           config:
             interfaces:
-              - name: enp5s0f1
-                type: ethernet
+              - name: enp5s0f1.302
+                type: vlan
                 state: up
+                vlan:
+                  base-iface: enp5s0f1
+                  id: 302
                 ipv4:
                   address:
                   - ip: 10.1.198.37
@@ -132,7 +138,7 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1
+                  next-hop-interface: enp5s0f1.302
                   next-hop-address: 10.1.198.46
 ############################################################
       - hostName: "master3.cwl-site1.jpatete.info"
@@ -163,9 +169,12 @@ spec:
               macAddress: "b4:96:91:1d:74:96"
           config:
             interfaces:
-              - name: enp5s0f1
-                type: ethernet
+              - name: enp5s0f1.302
+                type: vlan
                 state: up
+                vlan:
+                  base-iface: enp5s0f1
+                  id: 302
                 ipv4:
                   address:
                   - ip: 10.1.198.38
@@ -180,5 +189,5 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1
+                  next-hop-interface: enp5s0f1.302
                   next-hop-address: 10.1.198.46
