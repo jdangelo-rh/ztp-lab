@@ -135,10 +135,10 @@ spec:
 ############################################################
       - hostName: "master3.cwl-site1.jpatete.info"
         role: "master"
-        bmcAddress: "idrac-virtualmedia+https://10.1.177.23/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia+https://10.1.177.24/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-3"
-        bootMACAddress: "b4:96:91:1d:72:6e"
+        bootMACAddress: "b4:96:91:1d:74:96" 
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -156,9 +156,9 @@ spec:
         nodeNetwork:
           interfaces:
             - name: "enp5s0f0"
-              macAddress: "b4:96:91:1d:72:6c"
+              macAddress: "b4:96:91:1d:74:94"
             - name: "enp5s0f1"
-              macAddress: "b4:96:91:1d:72:6e"
+              macAddress: "b4:96:91:1d:74:96"
           config:
             interfaces:
               - name: enp5s0f1
