@@ -1,0 +1,87 @@
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "cwl-site1"
+  namespace: "cwl-site1"
+spec:
+  baseDomain: "jpatete.info"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret"
+  clusterImageSetNameRef: "img4.14.27-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDikFJUEHrienq0oIzOIFPgBARssBwVgNTKU7Vhe37lMTYnCcu3GNNdryE/ZXBzD4Q1lEAWf1nAUM8zbndsgtrx7uups/eKAgv0FiaSplFS3nNI9Wtdc0Zg0ynO2NUhx505vlV/4nGYAolj3hqF3QtbVFLR83S9A8DdlUEufA/PLLe0FmITu4qHMDAmuTwABPkdi8MdAkyBQxop+9mnsC2BMabRtnxIZa3tADYYUF1RGjTgCFmntEdVff2w3eakNsYo0WRxEFgBoz5Oco0mXOEA/imur5TE+PXmZGtyvyFLEVQoHJin+sHfAmv70pUfBXh/aEgEtES3Y2zaMtflt6kBghCJC1plxZWBhv32SX/Y2rj/rXuBZFlYp6pRKtCxzraFTbl2z5ORSgJpIvXQvb8tPdR9se/KEixiGjV/duLetwvNXDRenXpJCqhwR1sIMpcPdqkgXI1KvQKcx4S1SsTzHuT0l33gyDe+HPeqMGmoFaJIsybYG2zSznELnuYlFYEbeHB5tWyZKb82habRbwAO9j4jEyaEDvfM6d9f+p23L6DhATOMdARZHNALMaMPNNzrKOZg4lL2ygH+hysdPAjhJg76iWjqqJVrluF03RZwTcuXsdbFX9pVYXoZwYkB4bCYWv4aVkskVjujgzxQXgZ2yRDSiII2Jg2gnfmHr9mHXw=="
+  clusters:
+  - clusterName: "cwl-site1"
+    # - NodeTuning is needed for 4.13 and later, not for 4.12 and earlier
+    installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"marketplace\", \"NodeTuning\" ] }}"    
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      cluster: cwl-site1
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 10.1.198.32/28
+    # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
+    serviceNetwork:
+      - 172.30.0.0/16
+    additionalNTPSources:
+      - 10.11.160.238
+      # - 1111:2222:3333:4444::2
+    # Optionally; This can be used to override the KlusterletAddonConfig that is created for this cluster:
+    #crTemplates:
+    #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
+    # Optionally; This can be used to to configure desired BIOS setting on all nodes in this cluster:
+    #biosConfigRef:
+    #  filePath: "example-hw.profile"
+################################################################
+    nodes:
+      - hostName: "master0.cwl-site1.jpatete.info"
+        role: "master"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcCredentialsName:
+          name: "bmh-secret-3"
+        bootMACAddress: "b4:96:91:1d:74:96" 
+        bootMode: "UEFISecureBoot"  
+        # Use UEFISecureBoot to enable secure boot for this node
+        # bootMode: "UEFI"
+        nodeLabels:
+          cluster.ocs.openshift.io/openshift-storage: "true"
+        rootDeviceHints:
+          deviceName: "/dev/sda"
+# As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
+        #diskPartition:
+        #  - device: /dev/sda
+        #    partitions:
+        #    - mount_point: /var/recovery
+        #      size: 51200
+        #      start: 800000
+        nodeNetwork:
+          interfaces:
+            - name: "enp5s0f0"
+              macAddress: "b4:96:91:1d:74:94"
+            - name: "enp5s0f1"
+              macAddress: "b4:96:91:1d:74:96"
+          config:
+            interfaces:
+              - name: enp5s0f1.302
+                type: vlan
+                state: up
+                vlan:
+                  base-iface: enp5s0f1
+                  id: 302
+                ipv4:
+                  address:
+                  - ip: 10.1.198.38
+                    prefix-length: 28
+                  enabled: true
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                server:
+                  - 10.1.198.36
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-interface: enp5s0f1.302
+                  next-hop-address: 10.1.198.46
