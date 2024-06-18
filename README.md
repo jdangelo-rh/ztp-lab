@@ -343,7 +343,7 @@ all:
               ipv6_address: fd00:6:6:2051::101
               bmc_address: "<ip del puerto management>"
               mac: "DE:AD:BE:EF:C0:2C"
-			  bondmac1: "DE:AD:BE:EF:C0:2C"
+              bondmac1: "DE:AD:BE:EF:C0:2C"
               bondmac2: "DE:AD:BE:EF:C0:2D"
 
             master2:
@@ -351,7 +351,7 @@ all:
               ipv6_address: fd00:6:6:2051::102
               bmc_address: "<ip del puerto management>"
               mac: "DE:AD:BE:EF:C0:2E"
-			  bondmac1: "DE:AD:BE:EF:C0:2E"
+              bondmac1: "DE:AD:BE:EF:C0:2E"
               bondmac2: "DE:AD:BE:EF:C0:2F"              
 
             master3:
@@ -359,7 +359,7 @@ all:
               ipv6_address: fd00:6:6:2051::103             
               bmc_address: "<ip del puerto management>"
               mac: "DE:AD:BE:EF:C0:2G"
-			  bondmac1: "DE:AD:BE:EF:C0:2G"
+              bondmac1: "DE:AD:BE:EF:C0:2G"
               bondmac2: "DE:AD:BE:EF:C0:2H"  
 ```
 
