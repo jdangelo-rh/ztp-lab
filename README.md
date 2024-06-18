@@ -1,46 +1,51 @@
 # ztp-lab
 
-Crucible
+## Crucible
 
 docs: https://github.com/redhat-partner-solutions/crucible
 
 
-dnf -y install ansible-core python3-netaddr skopeo podman openshift-clients ipmitool python3-pyghmi python3-jmespath nmstate
+`dnf -y install ansible-core python3-netaddr skopeo podman openshift-clients ipmitool python3-pyghmi python3-jmespath nmstate`
 
 
-ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa
+`ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa`
 
 
-subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+`subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms`
 
-git clone https://github.com/redhat-partner-solutions/crucible
+ `git clone https://github.com/redhat-partner-solutions/crucible`
 
-cd crucible
+` cd crucible`
 
-ansible-galaxy collection install -r requirements.yml
+`ansible-galaxy collection install -r requirements.yml`
 
+```shell
 cp inventory.yml.sample <cluster_id>_inventory.yml
 vi <cluster_id>_inventory.yml
+```
 
+```shell
 cp inventory.vault.yml.sample inventory.vault.yml
 vi inventory.vault.yml
+```
 
 
-ansible-playbook -i <cluster_id>_inventory.yml deploy_prerequisites.yml -e "@inventory.vault.yml" --ask-vault-pass
+`ansible-playbook -i <cluster_id>_inventory.yml deploy_prerequisites.yml -e "@inventory.vault.yml" --ask-vault-pass`
 
-ansible-playbook -i <cluster_id>_inventory.yml deploy_cluster.yml -e "@inventory.vault.yml" --ask-vault-pass
+`ansible-playbook -i <cluster_id>_inventory.yml deploy_cluster.yml -e "@inventory.vault.yml" --ask-vault-pass`
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-ZTP
+## ZTP
 
-Instalar ACM 
+- Instalar ACM 
 
-Instalar Gitops
+- Instalar Gitops
 
-Instalar TALM
+- Instalar TALM
 
-Crear provisioning 
+- Crear provisioning 
 
+```yaml
 apiVersion: metal3.io/v1alpha1
 kind: Provisioning
 metadata:
@@ -48,9 +53,11 @@ metadata:
 spec:
   provisioningNetwork: "Disabled"
   watchAllNamespaces: true
+```
 
-Crear  AgentServiceConfig
+- Crear  AgentServiceConfig
 
+```yaml
 apiVersion: agent-install.openshift.io/v1beta1
 kind: AgentServiceConfig
 metadata:
@@ -75,19 +82,26 @@ spec:
       requests:
         storage: <img_volume_size>  
 
-$ podman pull registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.16.0-34
+```
+- Crear Repo de ejemplo
 
-$ mkdir -p ./out
-$ podman run --rm --log-driver=none ztp-site-generator:latest extract /home/ztp --tar | tar x -C ./out
+`$ podman pull registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.16.0-34`
 
-**** out/extra-manifest: contains the source CRs files that SiteConfig uses to generate extra manifest configMap.
-**** out/source-crs: contains the source CRs files that PolicyGenTemplate uses to generate the ACM policies.
-**** out/argocd/deployment: contains patches and yaml file to apply on the hub cluster for use in the next step of this procedure.
-**** out/argocd/example: contains example SiteConfig and PolicyGenTemplate that represent our recommended configuration.
+`$ mkdir -p ./out`
 
-$ oc patch argocd openshift-gitops -n openshift-gitops  --type=merge --patch-file out/argocd/deployment/argocd-openshift-gitops-patch.json
+`$ podman run --rm --log-driver=none ztp-site-generator:latest extract /home/ztp --tar | tar x -C ./out`
 
-Create a git repository with directory structure similar to the example directory.
+*out/extra-manifest: contains the source CRs files that SiteConfig uses to generate extra manifest configMap.
+out/source-crs: contains the source CRs files that PolicyGenTemplate uses to generate the ACM policies.
+out/argocd/deployment: contains patches and yaml file to apply on the hub cluster for use in the next step of this procedure.
+out/argocd/example: contains example SiteConfig and PolicyGenTemplate that represent our recommended configuration.*
+
+- Patchear Argocd
+
+`$ oc patch argocd openshift-gitops -n openshift-gitops  --type=merge --patch-file out/argocd/deployment/argocd-openshift-gitops-patch.json`
+
+- Create a git repository with directory structure similar to the example directory.
+```rst
 Configure access to the repository using the ArgoCD UI. Under Settings configure:
 *** Repositories --> Add connection information (URL ending in .git, eg https://repo.example.com/repo.git, and credentials)
 *** Certificates --> Add the public certificate for the repository if needed
@@ -95,11 +109,15 @@ Modify the two ArgoCD Applications (out/argocd/deployment/clusters-app.yaml and 
 *** Update URL to point to git repository. The URL must end with .git, eg: https://repo.example.com/repo.git
 *** The targetRevision should indicate which branch to monitor
 *** The path should specify the path to the SiteConfig or PolicyGenTemplate CRs respectively
-Apply pipeline configuration to your hub cluster using the following command.
-    oc apply -k out/argocd/deployment
+```
 
-Crear Secret con los valores de las BMC:
+- Apply pipeline configuration to your hub cluster using the following command.
 
+`$ oc apply -k out/argocd/deployment`
+
+- Crear Secret con los valores de las BMC y Pull-Secret:
+
+```yaml
 apiVersion: v1
 kind: Secret
 type: Opaque
@@ -139,8 +157,11 @@ metadata:
   namespace: cwl-site1
 type: kubernetes.io/dockerconfigjson
 
-Crear Siteconfig dentro del path configurado en out/argocd/deployment/clusters-app.yaml
+```
 
+- Crear Siteconfig dentro del path configurado en out/argocd/deployment/clusters-app.yaml
+
+```yaml
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
@@ -322,3 +343,9 @@ spec:
               config:
                 - destination: 0.0.0.0/0
                   next-hop-address: 10.1.198.46
+```
+- Sinronizar Argocd
+
+- Aplicar secret creado anteriormente
+
+`$ oc apply -f secret.yaml`
