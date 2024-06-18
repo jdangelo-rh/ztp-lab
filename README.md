@@ -727,7 +727,7 @@ spec:
                 - destination: 0.0.0.0/0
                   next-hop-address: 10.1.198.46
 ```
-- Sinronizar Argocd
+- Sincronizar Argocd
 
 - Aplicar secret creado anteriormente
 
