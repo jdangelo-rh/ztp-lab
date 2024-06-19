@@ -44,7 +44,7 @@ spec:
         bmcAddress: "redfish-virtualmedia://10.1.198.35:9000/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-1"
-        bootMACAddress: "b4:96:91:25:93:22"
+        bootMACAddress: "b4:96:91:1d:7c:22"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -62,9 +62,9 @@ spec:
         nodeNetwork:
           interfaces:
             - name: "enp5s0f0"
-              macAddress: "b4:96:91:25:93:20"
+              macAddress: "b4:96:91:1d:7c:20"
             - name: "enp5s0f1"
-              macAddress: "b4:96:91:25:93:22"
+              macAddress: "b4:96:91:1d:7c:22"
           config:
             interfaces:
               - name: enp5s0f1.302
