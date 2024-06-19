@@ -13,7 +13,7 @@ spec:
   - clusterName: "cwl-site1"
     networkType: "OVNKubernetes"
     clusterLabels:
-      cluster: cwl-site1
+      cluster: "cwl-site1"
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23

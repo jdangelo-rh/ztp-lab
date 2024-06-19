@@ -15,7 +15,7 @@ generators:
 #- group-du-standard-validator-ranGen.yaml
 # These are examples that should be replicated for every individual site:
 #- example-sno-site.yaml
-- example-multinode-site.yaml
+- multinode-site-jorge.yaml
 
 resources:
 - ns.yaml
