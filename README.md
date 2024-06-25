@@ -733,3 +733,11 @@ spec:
 - Aplicar secret creado anteriormente
 
 `$ oc apply -f secret.yaml`
+
+- Monitoreo del progreso
+
+```bash
+$ export CLUSTER=<clusterName>
+$ oc get agentclusterinstall -n $CLUSTER $CLUSTER -o jsonpath='{.status.conditions[?(@.type=="Completed")]}' | jq
+$ curl -sk $(oc get agentclusterinstall -n $CLUSTER $CLUSTER -o jsonpath='{.status.debugInfo.eventsURL}')  | jq '.[-2,-1]'
+```
