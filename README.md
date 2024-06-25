@@ -559,6 +559,7 @@ spec:
   clusters:
   - clusterName: "cwl-site1"
     networkType: "OVNKubernetes"
+    holdInstallation: false
     clusterLabels:
       cluster: cwl-site1
     clusterNetwork:
