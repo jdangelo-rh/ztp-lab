@@ -468,11 +468,11 @@ spec:
 ```
 - Crear Repo de ejemplo
 
-`$ podman pull registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.16.0-34`
+`$ podman pull registry.redhat.io/openshift4/ztp-site-generate-rhel8:latest`
 
 `$ mkdir -p ./out`
 
-`$ podman run --rm --log-driver=none ztp-site-generator:latest extract /home/ztp --tar | tar x -C ./out`
+`$ podman run --rm --log-driver=none ztp-site-generate-rhel8:latest extract /home/ztp --tar | tar x -C ./out`
 
 *out/extra-manifest: contains the source CRs files that SiteConfig uses to generate extra manifest configMap.
 out/source-crs: contains the source CRs files that PolicyGenTemplate uses to generate the ACM policies.
