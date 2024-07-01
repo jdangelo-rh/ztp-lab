@@ -494,9 +494,6 @@ Modify the two ArgoCD Applications (out/argocd/deployment/clusters-app.yaml and 
 *** The path should specify the path to the SiteConfig or PolicyGenTemplate CRs respectively
 ```
 
-- Apply pipeline configuration to your hub cluster using the following command.
-
-`$ oc apply -k out/argocd/deployment`
 
 - Crear Secret con los valores de las BMC y Pull-Secret:
 
@@ -728,6 +725,10 @@ spec:
                 - destination: 0.0.0.0/0
                   next-hop-address: 10.1.198.46
 ```
+- Apply pipeline configuration to your hub cluster using the following command.
+
+`$ oc apply -k out/argocd/deployment`
+
 - Sincronizar Argocd
 
 - Aplicar secret creado anteriormente
