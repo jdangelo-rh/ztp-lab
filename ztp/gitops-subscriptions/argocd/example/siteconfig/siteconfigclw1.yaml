@@ -195,7 +195,7 @@ spec:
 ############################################################
       - hostName: "worker1.cwl-site1.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9003/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-4"
         bootMACAddress: "b4:96:91:1d:7f:de"
@@ -246,7 +246,7 @@ spec:
 ############################################################
       - hostName: "worker2.cwl-site1.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9004/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-5"
         bootMACAddress: "b4:96:91:1d:7f:be"
