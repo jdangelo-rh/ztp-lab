@@ -4,33 +4,33 @@ metadata:
   name: "cwl-site1"
   namespace: "cwl-site1"
 spec:
-  baseDomain: "jpatete.info"
+  baseDomain: "labopool6"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
   clusterImageSetNameRef: "img4.14.27-x86-64-appsub"
-  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDikFJUEHrienq0oIzOIFPgBARssBwVgNTKU7Vhe37lMTYnCcu3GNNdryE/ZXBzD4Q1lEAWf1nAUM8zbndsgtrx7uups/eKAgv0FiaSplFS3nNI9Wtdc0Zg0ynO2NUhx505vlV/4nGYAolj3hqF3QtbVFLR83S9A8DdlUEufA/PLLe0FmITu4qHMDAmuTwABPkdi8MdAkyBQxop+9mnsC2BMabRtnxIZa3tADYYUF1RGjTgCFmntEdVff2w3eakNsYo0WRxEFgBoz5Oco0mXOEA/imur5TE+PXmZGtyvyFLEVQoHJin+sHfAmv70pUfBXh/aEgEtES3Y2zaMtflt6kBghCJC1plxZWBhv32SX/Y2rj/rXuBZFlYp6pRKtCxzraFTbl2z5ORSgJpIvXQvb8tPdR9se/KEixiGjV/duLetwvNXDRenXpJCqhwR1sIMpcPdqkgXI1KvQKcx4S1SsTzHuT0l33gyDe+HPeqMGmoFaJIsybYG2zSznELnuYlFYEbeHB5tWyZKb82habRbwAO9j4jEyaEDvfM6d9f+p23L6DhATOMdARZHNALMaMPNNzrKOZg4lL2ygH+hysdPAjhJg76iWjqqJVrluF03RZwTcuXsdbFX9pVYXoZwYkB4bCYWv4aVkskVjujgzxQXgZ2yRDSiII2Jg2gnfmHr9mHXw=="
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDH83UgeIifQIXdEAeNMVL5RweBFmEOo6RzzqyTA1tUXiICKB9cUNYRjW4N4wkizWxjgJ1q1a49zzDpVrBotd0OQCw5yY0/tfh9F3lXu3EqGdn6vhuWP7NlJDMao+vEgqxGdDQPv1GZJ39qvIc0FdPkxJjwSxYWw2e0aZXb09Ivjw== noname"
   clusters:
-  - clusterName: "cwl-site1"
+  - clusterName: "ztplab"
     networkType: "OVNKubernetes"
     holdInstallation: false
     clusterLabels:
-      cluster: "cwl-site1"
+      cluster: "ztplab"
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
     machineNetwork:
-      - cidr: 10.1.198.32/28
+      - cidr: 10.1.198.160/28
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
-    apiVIP: 10.1.198.43
+    apiVIP: 10.1.198.173
     apiVIPs:
-      - 10.1.198.43
-    ingressVIP:  10.1.198.44
+      - 10.1.198.173
+    ingressVIP:  10.1.198.172
     ingressVIPs:
-      - 10.1.198.44
+      - 10.1.198.172
     serviceNetwork:
       - 172.30.0.0/16
-    additionalNTPSources:
-      - 10.11.160.238
+##  additionalNTPSources:
+##    - 10.11.160.238
       # - 1111:2222:3333:4444::2
     # Optionally; This can be used to override the KlusterletAddonConfig that is created for this cluster:
     #crTemplates:
@@ -40,12 +40,12 @@ spec:
     #  filePath: "example-hw.profile"
 ################################################################
     nodes:
-      - hostName: "master1.cwl-site1.jpatete.info"
+      - hostName: "master1.cwl-site1.labopool6"
         role: "master"
         bmcAddress: "redfish-virtualmedia://10.1.198.35:9000/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-1"
-        bootMACAddress: "b4:96:91:1d:7c:22"
+        bootMACAddress: "b4:96:91:1d:7c:ae"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -63,20 +63,20 @@ spec:
         nodeNetwork:
           interfaces:
             - name: "enp5s0f0"
-              macAddress: "b4:96:91:1d:7c:20"
+              macAddress: "b4:96:91:1d:7c:ac"
             - name: "enp5s0f1"
-              macAddress: "b4:96:91:1d:7c:22"
+              macAddress: "b4:96:91:1d:7c:ae"
           config:
             interfaces:
-              - name: enp5s0f1.302
+              - name: enp5s0f1.310
                 type: vlan
                 state: up
                 vlan:
                   base-iface: enp5s0f1
-                  id: 302
+                  id: 310
                 ipv4:
                   address:
-                  - ip: 10.1.198.34
+                  - ip: 10.1.198.69
                     prefix-length: 28
                   enabled: true
                 ipv6:
@@ -84,19 +84,19 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.1.198.36
+                  - 8.8.8.8
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1.302
-                  next-hop-address: 10.1.198.46
+                  next-hop-interface: enp5s0f1.310
+                  next-hop-address: 10.1.198.174
 ############################################################
-      - hostName: "master2.cwl-site1.jpatete.info"
+      - hostName: "master2.cwl-site1.labopool6"
         role: "master"
         bmcAddress: "redfish-virtualmedia://10.1.198.35:9001/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-2"
-        bootMACAddress: "b4:96:91:1d:7a:56"
+        bootMACAddress: "b4:96:91:1d:7f:b6"
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -114,12 +114,12 @@ spec:
         nodeNetwork:
           interfaces:
             - name: "enp5s0f0"
-              macAddress: "b4:96:91:1d:7a:54"
+              macAddress: "b4:96:91:1d:7f:b4"
             - name: "enp5s0f1"
-              macAddress: "b4:96:91:1d:7a:56"
+              macAddress: "b4:96:91:1d:7f:b6"
           config:
             interfaces:
-              - name: enp5s0f1.302
+              - name: enp5s0f1.310
                 type: vlan
                 state: up
                 vlan:
@@ -127,7 +127,7 @@ spec:
                   id: 302
                 ipv4:
                   address:
-                  - ip: 10.1.198.37
+                  - ip: 10.1.198.170
                     prefix-length: 28
                   enabled: true
                 ipv6:
@@ -135,19 +135,19 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.1.198.36
+                  - 8.8.8.8
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1.302
-                  next-hop-address: 10.1.198.46
+                  next-hop-interface: enp5s0f1.310
+                  next-hop-address: 10.1.198.174
 ############################################################
-      - hostName: "master3.cwl-site1.jpatete.info"
+      - hostName: "master3.cwl-site1.labopool6"
         role: "master"
         bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-3"
-        bootMACAddress: "b4:96:91:1d:74:96" 
+        bootMACAddress: "b4:96:91:1d:7f:32" 
         bootMode: "UEFISecureBoot"  
         # Use UEFISecureBoot to enable secure boot for this node
         # bootMode: "UEFI"
@@ -165,12 +165,12 @@ spec:
         nodeNetwork:
           interfaces:
             - name: "enp5s0f0"
-              macAddress: "b4:96:91:1d:74:94"
+              macAddress: "b4:96:91:1d:7f:30"
             - name: "enp5s0f1"
-              macAddress: "b4:96:91:1d:74:96"
+              macAddress: "b4:96:91:1d:7f:32"
           config:
             interfaces:
-              - name: enp5s0f1.302
+              - name: enp5s0f1.310
                 type: vlan
                 state: up
                 vlan:
@@ -178,7 +178,7 @@ spec:
                   id: 302
                 ipv4:
                   address:
-                  - ip: 10.1.198.38
+                  - ip: 10.1.198.171
                     prefix-length: 28
                   enabled: true
                 ipv6:
@@ -186,9 +186,111 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.1.198.36
+                  - 8.8.8.8
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1.302
-                  next-hop-address: 10.1.198.46
+                  next-hop-interface: enp5s0f1.310
+                  next-hop-address: 10.1.198.174
+############################################################
+      - hostName: "worker1.cwl-site1.labopool6"
+        role: "worker"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcCredentialsName:
+          name: "bmh-secret-4"
+        bootMACAddress: "b4:96:91:1d:7f:de"
+        bootMode: "UEFISecureBoot"
+        # Use UEFISecureBoot to enable secure boot for this node
+        # bootMode: "UEFI"
+        nodeLabels:
+          cluster.ocs.openshift.io/openshift-storage: "true"
+        rootDeviceHints:
+          deviceName: "/dev/sda"
+# As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
+        #diskPartition:
+        #  - device: /dev/sda
+        #    partitions:
+        #    - mount_point: /var/recovery
+        #      size: 51200
+        #      start: 800000
+        nodeNetwork:
+          interfaces:
+            - name: "enp5s0f0"
+              macAddress: "b4:96:91:1d:7f:dc"
+            - name: "enp5s0f1"
+              macAddress: "b4:96:91:1d:7f:de"
+          config:
+            interfaces:
+              - name: enp5s0f1.310
+                type: vlan
+                state: up
+                vlan:
+                  base-iface: enp5s0f1
+                  id: 302
+                ipv4:
+                  address:
+                  - ip: 10.1.198.168
+                    prefix-length: 28
+                  enabled: true
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                server:
+                  - 8.8.8.8
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-interface: enp5s0f1.310
+                  next-hop-address: 10.1.198.174
+############################################################
+      - hostName: "worker2.cwl-site1.labopool6"
+        role: "worker"
+        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcCredentialsName:
+          name: "bmh-secret-5"
+        bootMACAddress: "b4:96:91:1d:7f:be"
+        bootMode: "UEFISecureBoot"
+        # Use UEFISecureBoot to enable secure boot for this node
+        # bootMode: "UEFI"
+        nodeLabels:
+          cluster.ocs.openshift.io/openshift-storage: "true"
+        rootDeviceHints:
+          deviceName: "/dev/sda"
+# As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
+        #diskPartition:
+        #  - device: /dev/sda
+        #    partitions:
+        #    - mount_point: /var/recovery
+        #      size: 51200
+        #      start: 800000
+        nodeNetwork:
+          interfaces:
+            - name: "enp5s0f0"
+              macAddress: "b4:96:91:1d:7f:bc"
+            - name: "enp5s0f1"
+              macAddress: "b4:96:91:1d:7f:be"
+          config:
+            interfaces:
+              - name: enp5s0f1.310
+                type: vlan
+                state: up
+                vlan:
+                  base-iface: enp5s0f1
+                  id: 302
+                ipv4:
+                  address:
+                  - ip: 10.1.198.167
+                    prefix-length: 28
+                  enabled: true
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                server:
+                  - 8.8.8.8
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-interface: enp5s0f1.310
+                  next-hop-address: 10.1.198.174                  

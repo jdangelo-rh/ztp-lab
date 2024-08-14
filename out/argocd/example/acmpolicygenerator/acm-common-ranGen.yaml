@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: common-4.14
+  name: common-latest
 placementBindingDefaults:
   name: common-placement-binding
 policyDefaults:
@@ -13,7 +13,7 @@ policyDefaults:
   placement:
     labelSelector:
       common: "true"
-      du-profile: "4.14"
+      du-profile: "latest"
   remediationAction: inform
   severity: low
   # standards: []
@@ -26,12 +26,11 @@ policyDefaults:
     compliant: 10m
     noncompliant: 10s
 policies:
-- name: common-config-policy-4.14
+- name: common-latest-config-policy
   policyAnnotations:
     ran.openshift.io/ztp-deploy-wave: "1"
   manifests:
     - path: source-crs/ReduceMonitoringFootprint.yaml
-    - path: source-crs/OperatorHub.yaml
     - path: source-crs/DefaultCatsrc.yaml
       patches:
       - metadata:
@@ -46,7 +45,7 @@ policies:
           - mirrors:
             - registry.example.com:5000
             source: registry.redhat.io
-- name: common-subscriptions-policy-4.14
+- name: common-latest-subscriptions-policy
   policyAnnotations:
     ran.openshift.io/ztp-deploy-wave: "2"
   manifests:
@@ -70,3 +69,15 @@ policies:
     - path: source-crs/StorageOperGroup.yaml
     - path: source-crs/StorageSubscription.yaml
     - path: source-crs/StorageOperatorStatus.yaml
+    #
+    # LCA operator is used for orchestrating Image Based Upgrade for SNO
+    # - path: source-crs/LcaSubscriptionNS.yaml
+    # - path: source-crs/LcaSubscriptionOperGroup.yaml
+    # - path: source-crs/LcaSubscription.yaml
+    # - path: source-crs/LcaOperatorStatus.yaml
+    #
+    # OADP operator is used for backing up and restoring application during Image Based Upgrade
+    # - path: source-crs/OadpSubscriptionNS.yaml
+    # - path: source-crs/OadpSubscriptionOperGroup.yaml
+    # - path: source-crs/OadpSubscription.yaml
+    # - path: source-crs/OadpOperatorStatus.yaml
