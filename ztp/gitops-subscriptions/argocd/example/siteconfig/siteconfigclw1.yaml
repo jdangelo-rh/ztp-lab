@@ -40,9 +40,9 @@ spec:
     #  filePath: "example-hw.profile"
 ################################################################
     nodes:
-      - hostName: "master1.cwl-site1.labopool6"
+      - hostName: "master1.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9000/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.96.134.54:9000/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-1"
         bootMACAddress: "b4:96:91:1d:7c:ae"
@@ -91,9 +91,9 @@ spec:
                   next-hop-interface: enp5s0f1.310
                   next-hop-address: 10.1.198.174
 ############################################################
-      - hostName: "master2.cwl-site1.labopool6"
+      - hostName: "master2.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9001/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.96.134.54:9001/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-2"
         bootMACAddress: "b4:96:91:1d:7f:b6"
@@ -142,9 +142,9 @@ spec:
                   next-hop-interface: enp5s0f1.310
                   next-hop-address: 10.1.198.174
 ############################################################
-      - hostName: "master3.cwl-site1.labopool6"
+      - hostName: "master3.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9002/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.96.134.54:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-3"
         bootMACAddress: "b4:96:91:1d:7f:32" 
@@ -193,9 +193,9 @@ spec:
                   next-hop-interface: enp5s0f1.310
                   next-hop-address: 10.1.198.174
 ############################################################
-      - hostName: "worker1.cwl-site1.labopool6"
+      - hostName: "worker1.ztplab.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9003/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.96.134.54:9003/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-4"
         bootMACAddress: "b4:96:91:1d:7f:de"
@@ -244,9 +244,9 @@ spec:
                   next-hop-interface: enp5s0f1.310
                   next-hop-address: 10.1.198.174
 ############################################################
-      - hostName: "worker2.cwl-site1.labopool6"
+      - hostName: "worker2.ztplab.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.1.198.35:9004/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.96.134.54:9004/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-5"
         bootMACAddress: "b4:96:91:1d:7f:be"
