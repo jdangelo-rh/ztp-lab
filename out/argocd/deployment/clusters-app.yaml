@@ -6,12 +6,12 @@ metadata:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clusters
+  name: ztplab
   namespace: openshift-gitops
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: clusters-sub
+    namespace: ztplab
   project: ztp-app-project
   source:
     path: ztp/gitops-subscriptions/argocd/example/siteconfig
