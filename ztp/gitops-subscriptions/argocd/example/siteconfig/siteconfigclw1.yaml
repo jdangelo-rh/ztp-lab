@@ -53,6 +53,7 @@ spec:
           cluster.ocs.openshift.io/openshift-storage: "true"
         rootDeviceHints:
           deviceName: "/dev/sda"
+        preprovisioning: skip          
 # As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
         #diskPartition:
         #  - device: /dev/sda
@@ -104,6 +105,7 @@ spec:
           cluster.ocs.openshift.io/openshift-storage: "true"
         rootDeviceHints:
           deviceName: "/dev/sda"
+        preprovisioning: skip          
 # As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
         #diskPartition:
         #  - device: /dev/sda
@@ -155,6 +157,7 @@ spec:
           cluster.ocs.openshift.io/openshift-storage: "true"
         rootDeviceHints:
           deviceName: "/dev/sda"
+        preprovisioning: skip          
 # As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
         #diskPartition:
         #  - device: /dev/sda
@@ -206,6 +209,7 @@ spec:
           cluster.ocs.openshift.io/openshift-storage: "true"
         rootDeviceHints:
           deviceName: "/dev/sda"
+        preprovisioning: skip          
 # As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
         #diskPartition:
         #  - device: /dev/sda
@@ -257,6 +261,7 @@ spec:
           cluster.ocs.openshift.io/openshift-storage: "true"
         rootDeviceHints:
           deviceName: "/dev/sda"
+        preprovisioning: skip          
 # As per: https://docs.openshift.com/container-platform/4.11/scalability_and_performance/cnf-talm-for-cluster-upgrades.html#cnf-about-topology-aware-lifecycle-manager-config_cnf-topology-aware-lifecycle-manager
         #diskPartition:
         #  - device: /dev/sda
