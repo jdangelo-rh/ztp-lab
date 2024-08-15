@@ -42,7 +42,7 @@ spec:
     nodes:
       - hostName: "master1.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.96.134.89:9000/redfish/v1/Systems/1"
+        bmcAddress: "idrac-virtualmedia+https://10.1.177.61/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-1"
         bootMACAddress: "b4:96:91:1d:7c:ae"
@@ -93,7 +93,7 @@ spec:
 ############################################################
       - hostName: "master2.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.96.134.89:9001/redfish/v1/Systems/1"
+        bmcAddress: "idrac-virtualmedia+https://10.1.177.62/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-2"
         bootMACAddress: "b4:96:91:1d:7f:b6"
@@ -144,7 +144,7 @@ spec:
 ############################################################
       - hostName: "master3.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.96.134.89:9002/redfish/v1/Systems/1"
+        bmcAddress: "idrac-virtualmedia+https://10.1.177.63/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-3"
         bootMACAddress: "b4:96:91:1d:7f:32" 
@@ -195,7 +195,7 @@ spec:
 ############################################################
       - hostName: "worker1.ztplab.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.96.134.89:9003/redfish/v1/Systems/1"
+        bmcAddress: "idrac-virtualmedia+https://10.1.177.64/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-4"
         bootMACAddress: "b4:96:91:1d:7f:de"
@@ -246,7 +246,7 @@ spec:
 ############################################################
       - hostName: "worker2.ztplab.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.96.134.89:9004/redfish/v1/Systems/1"
+        bmcAddress: "idrac-virtualmedia+https://10.1.177.65/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmh-secret-5"
         bootMACAddress: "b4:96:91:1d:7f:be"
