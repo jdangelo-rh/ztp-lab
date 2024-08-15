@@ -1,13 +1,13 @@
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
-  name: "cwl-site1"
-  namespace: "cwl-site1"
+  name: "ztplab"
+  namespace: "ztplab"
 spec:
   baseDomain: "labopool6"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "img4.14.27-x86-64-appsub"
+  clusterImageSetNameRef: "img4.14.34-x86-64-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDH83UgeIifQIXdEAeNMVL5RweBFmEOo6RzzqyTA1tUXiICKB9cUNYRjW4N4wkizWxjgJ1q1a49zzDpVrBotd0OQCw5yY0/tfh9F3lXu3EqGdn6vhuWP7NlJDMao+vEgqxGdDQPv1GZJ39qvIc0FdPkxJjwSxYWw2e0aZXb09Ivjw== noname"
   clusters:
   - clusterName: "ztplab"
