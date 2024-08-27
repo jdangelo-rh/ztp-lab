@@ -76,7 +76,7 @@ spec:
                   id: 310
                 ipv4:
                   address:
-                  - ip: 10.1.198.69
+                  - ip: 10.1.198.169
                     prefix-length: 28
                   enabled: true
                 ipv6:
@@ -125,7 +125,7 @@ spec:
                 state: up
                 vlan:
                   base-iface: enp5s0f1
-                  id: 302
+                  id: 310
                 ipv4:
                   address:
                   - ip: 10.1.198.170
@@ -177,7 +177,7 @@ spec:
                 state: up
                 vlan:
                   base-iface: enp5s0f1
-                  id: 302
+                  id: 310
                 ipv4:
                   address:
                   - ip: 10.1.198.171
@@ -229,7 +229,7 @@ spec:
                 state: up
                 vlan:
                   base-iface: enp5s0f1
-                  id: 302
+                  id: 310
                 ipv4:
                   address:
                   - ip: 10.1.198.168
@@ -281,7 +281,7 @@ spec:
                 state: up
                 vlan:
                   base-iface: enp5s0f1
-                  id: 302
+                  id: 310
                 ipv4:
                   address:
                   - ip: 10.1.198.167
