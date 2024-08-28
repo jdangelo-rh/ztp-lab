@@ -1,0 +1,46 @@
+apiVersion: v1beta1
+kind: AgentConfig
+rendezvousIP: 10.1.198.161
+additionalNTPSources:
+    - 10.11.160.238
+hosts:
+  - role: master
+    hostname: super1
+    interfaces:
+      - name: enp5s0f1
+        macAddress: b4:96:91:25:93:2a
+    networkConfig:
+      dns-resolver:
+        config:
+          server:
+          - 10.0.94.80
+      interfaces:
+        - name: enp5s0f1.310
+          state: up
+          type: vlan
+          ipv4:
+            address:
+              - ip: 10.1.198.161
+                prefix-length: 28
+            dhcp: false
+            enabled: true
+          vlan:
+            base-iface: enp5s0f1
+            id: 310
+        - name: enp5s0f1
+          mac-address: b4:96:91:25:93:2a
+          state: up
+          type: ethernet
+        - name: enp5s0f0
+          mac-address: b4:96:91:25:93:28
+          state: up
+          type: ethernet
+      routes:
+        config:
+          - destination: 0.0.0.0/0
+            next-hop-address: 10.1.198.174
+            next-hop-interface: enp5s0f1.310
+            table-id: 254
+
+    rootDeviceHints:
+      deviceName: /dev/sda
