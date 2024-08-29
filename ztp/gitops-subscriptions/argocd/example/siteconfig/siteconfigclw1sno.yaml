@@ -63,11 +63,11 @@ spec:
               macAddress: "b4:96:91:1d:7c:ae"
           config:
             interfaces:
-              - name: enp5s0f0.310
+              - name: enp5s0f1.310
                 type: vlan
                 state: up
                 vlan:
-                  base-iface: enp5s0f0
+                  base-iface: enp5s0f1
                   id: 310
                 ipv4:
                   address:
@@ -76,6 +76,11 @@ spec:
                   enabled: true
                 ipv6:
                   enabled: false
+              - name: enp5s0f1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: false                  
             dns-resolver:
               config:
                 server:
