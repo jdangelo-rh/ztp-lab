@@ -63,11 +63,11 @@ spec:
               macAddress: "b4:96:91:1d:7c:ae"
           config:
             interfaces:
-              - name: enp5s0f1.310
+              - name: enp5s0f0.310
                 type: vlan
                 state: up
                 vlan:
-                  base-iface: enp5s0f1
+                  base-iface: enp5s0f0
                   id: 310
                 ipv4:
                   address:
@@ -83,5 +83,5 @@ spec:
             routes:
               config:
                 - destination: 0.0.0.0/0
-                  next-hop-interface: enp5s0f1.310
+                  next-hop-interface: enp5s0f0.310
                   next-hop-address: 10.1.198.174
