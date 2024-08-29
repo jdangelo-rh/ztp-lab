@@ -42,7 +42,7 @@ spec:
     nodes:
       - hostName: "master1.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.0.94.80:9000/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.196.66:9000/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-1"
         bootMACAddress: "b4:96:91:1d:7c:ae"
@@ -84,7 +84,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.0.94.80
+                  - 10.1.196.66
             routes:
               config:
                 - destination: 0.0.0.0/0
@@ -93,7 +93,7 @@ spec:
 ############################################################
       - hostName: "master2.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.0.94.80:9001/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.196.66:9001/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-2"
         bootMACAddress: "b4:96:91:1d:7f:b6"
@@ -136,7 +136,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.0.94.80
+                  - 10.1.196.66
             routes:
               config:
                 - destination: 0.0.0.0/0
@@ -145,7 +145,7 @@ spec:
 ############################################################
       - hostName: "master3.ztplab.labopool6"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.0.94.80:9002/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.196.66:9002/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-3"
         bootMACAddress: "b4:96:91:1d:7f:32" 
@@ -188,7 +188,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.0.94.80
+                  - 10.1.196.66
             routes:
               config:
                 - destination: 0.0.0.0/0
@@ -197,7 +197,7 @@ spec:
 ############################################################
       - hostName: "worker1.ztplab.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.0.94.80:9003/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.196.66:9003/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-4"
         bootMACAddress: "b4:96:91:1d:7f:de"
@@ -240,7 +240,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.0.94.80
+                  - 10.1.196.66
             routes:
               config:
                 - destination: 0.0.0.0/0
@@ -249,7 +249,7 @@ spec:
 ############################################################
       - hostName: "worker2.ztplab.labopool6"
         role: "worker"
-        bmcAddress: "redfish-virtualmedia://10.0.94.80:9004/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.1.196.66:9004/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "bmh-secret-5"
         bootMACAddress: "b4:96:91:1d:7f:be"
@@ -292,7 +292,7 @@ spec:
             dns-resolver:
               config:
                 server:
-                  - 10.0.94.80
+                  - 10.1.196.66
             routes:
               config:
                 - destination: 0.0.0.0/0
