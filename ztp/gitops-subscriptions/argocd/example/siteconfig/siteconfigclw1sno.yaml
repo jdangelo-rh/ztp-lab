@@ -78,7 +78,7 @@ spec:
                   enabled: false
               - name: enp5s0f1
                 type: ethernet
-                state: down
+                state: up
                 ipv4:
                   enabled: false                  
                 ipv6:
